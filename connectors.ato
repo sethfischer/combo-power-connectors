@@ -1,0 +1,30 @@
+"""Combination power connectors."""
+
+from "generics/interfaces.ato" import Power
+
+
+component Xt30pwmHorizontalTerminalBlock5mmHorizontal:
+    """Combination XT30 and 5mm terminal block.
+
+    Combination of two footprints:
+
+    1. AMASS XT30PW-M Socket 15A 500V PCB mount
+        * LCSC part no.: C431092
+    2. Phoenix Contact PT 1,5 Series 5mm 2-way terminal block
+
+    # Reference
+
+    * [AMASS XT30PW-M XT30 Socket 15A 500V](https://www.tme.com/nz/en/details/xt30pw-m/dc-power-connectors/amass/)
+    * [AMASS XT30PW datasheet](https://www.tme.com/Document/6eb2005a51a52592b3f19e8a450c54c8/XT30PW-M.pdf)
+    """
+    designator_prefix = "J"
+    footprint = "Combo__AMASS_XT30PW-M_1x02_P2.50mm_Horizontal__TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
+    lcsc_id = ""
+    mpn = ""
+
+    signal gnd ~ pin 1
+    signal vin ~ pin 2
+
+    power = new Power
+    power.vcc ~ vin
+    power.gnd ~ gnd
